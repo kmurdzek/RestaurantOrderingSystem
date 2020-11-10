@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -23,7 +25,7 @@ public class ControllerOne implements Initializable{
     private ImageView image;
     
     @FXML
-    private ListView<String> includedIngredients;
+    private ListView<String> includedIngredients, ingredientSelection, extraIngredients ;
     
 	private static final Image chickenSandwich = new Image("chicken.jpg");
 	private static final Image beefSandwich = new Image("beef.jpg");
@@ -38,6 +40,11 @@ public class ControllerOne implements Initializable{
 		comboBox.setItems(items);
 		comboBox.setValue("Chicken");
   	    ObservableList<String> chickenIngredients = FXCollections.observableArrayList("Chicken", "Spicy Sauce", "Pickles");
+  	    ObservableList<String> ingredientSelect = FXCollections.observableArrayList("Bacon", "Cheddar", "Ketchup", "Lettuce",
+  	    		 "Mayonaise", "Mushrooms", "Onion", "Peppers", "Spinach", "Tomatos");
+  	    ingredientSelection.setItems(ingredientSelect);
+  	    //shit doesnt work idk why no multiple select
+  	    ingredientSelection.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
   	    includedIngredients.setItems(chickenIngredients);
 		image.setImage(chickenSandwich);
 		

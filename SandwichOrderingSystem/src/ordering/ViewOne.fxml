@@ -44,8 +44,8 @@
                   <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <ListView layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <ListView fx:id="ingredientSelection" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ListView fx:id="extraIngredients" layoutX="10.0" layoutY="10.0" prefHeight="155.0" prefWidth="208.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <Label alignment="CENTER" text="Ingredient Selection" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
                   <Label layoutX="10.0" layoutY="23.0" text="Extra Ingredients" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
                   <Button mnemonicParsing="false" text="Add Selected" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
