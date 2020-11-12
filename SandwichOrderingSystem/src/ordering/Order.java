@@ -9,14 +9,16 @@ public class Order implements Customizable {
 
 	@Override
 	public boolean add(Object obj) {
-		
-		return false;
+		orderLines.add((OrderLine) obj);
+		return true;
 	}
 
 	@Override
 	public boolean remove(Object obj) {
-		
-		return false;
+		orderLines.remove(obj);
+		return true;
 	}
+	
+	
 
 }

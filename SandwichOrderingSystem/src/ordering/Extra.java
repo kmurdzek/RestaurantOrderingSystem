@@ -16,4 +16,5 @@ public class Extra {
 	public static final Extra ONION = new Extra ("Onion");
 	public static final Extra MUSHROOMS = new Extra("Mushrooms");
 	public static final Extra SPINACH = new Extra("Spinach");
+	
 }
