@@ -50,6 +50,8 @@ public class ControllerOne implements Initializable {
 
 	ObservableList<String> ingredientSelect = FXCollections.observableArrayList();
 	ObservableList<String> extrasSelected = FXCollections.observableArrayList();
+	
+	
 
 	// this method is to show the second window when the show order button is
 	// clicked
@@ -94,6 +96,7 @@ public class ControllerOne implements Initializable {
 
 //		ingredientSelect.addAll("Bacon", "Cheddar", "Ketchup", "Lettuce", "Mayonaise",
 		// "Mushrooms", "Onion", "Peppers", "Spinach", "Tomatos");
+		ingredientSelect.setAll(ingredientSelect.sorted());
 
 		ingredientSelection.setItems(ingredientSelect);
 		extraIngredients.setItems(extrasSelected);
@@ -208,25 +211,36 @@ public class ControllerOne implements Initializable {
 	// adds to the extra area when called
 	@FXML
 	void addtoExtra(ActionEvent event) {
-		if (extrasSelected.contains(ingredientSelection.getSelectionModel().getSelectedItem()) != true
-				&& extrasSelected.size() < Sandwich.MAX_EXTRAS) {
+		if (ingredientSelection.getSelectionModel().getSelectedItem()!= null && !extrasSelected.contains(ingredientSelection.getSelectionModel().getSelectedItem())) {
+			
+			if (extrasSelected.size() < Sandwich.MAX_EXTRAS) {
+				
 			extrasSelected.add(ingredientSelection.getSelectionModel().getSelectedItem());
+			ingredientSelect.remove(ingredientSelection.getSelectionModel().getSelectedItem());
 			setThePrice();
-		} else {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Invalid");
-			alert.setHeaderText("Duplicate Selection");
-			alert.setContentText("This item has already been added");
-			alert.showAndWait();
+			
+			}else{
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Invalid");
+				alert.setHeaderText("Too Many Extra Ingredients");
+				alert.setContentText("No more than six ingredients can be added");
+				alert.showAndWait();
+			}
 		}
 	}
 
 	// removes extras from the extras area when called
 	@FXML
 	void removeExtra(ActionEvent event) {
-		extrasSelected.remove(extraIngredients.getSelectionModel().getSelectedItem());
+		if(extraIngredients.getSelectionModel().getSelectedItem()!=null && 
+				extrasSelected.contains(extraIngredients.getSelectionModel().getSelectedItem())) {
+			
+		ingredientSelect.add(extraIngredients.getSelectionModel().getSelectedItem());
+		extrasSelected.remove(extraIngredients.getSelectionModel().getSelectedItem());	
+		ingredientSelect.setAll(ingredientSelect.sorted());
 		setThePrice();
-		// System.out.println(extraIngredients.getItems());
+		}
+		
 	}
 
 	// puts the price in the text entry
@@ -247,7 +261,10 @@ public class ControllerOne implements Initializable {
 
 	@FXML
 	void clearAll(ActionEvent event) {
+		ingredientSelect.addAll(extrasSelected);
+		ingredientSelect.setAll(ingredientSelect.sorted());
 		extrasSelected.clear();
+		
 		setThePrice();
 	}
 

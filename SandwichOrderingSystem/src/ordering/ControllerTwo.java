@@ -70,12 +70,54 @@ public class ControllerTwo implements Initializable {
 	
 	@FXML 
 	void removeOrder(ActionEvent event) {
-		
+		if(orderOutput.getSelectionModel().getSelectedItem()!=null) {
+			int index =  orderStrings.indexOf(orderOutput.getSelectionModel().getSelectedItem());
+			ArrayList<OrderLine> order = controllerOne.order.getOrderLines();
+			OrderLine deleteThis = order.get(index);
+			order.remove(index);
+			for(int i = index; i<order.size(); i++) {
+				OrderLine meal = order.get(i);
+				meal.setLineNumber(i+1);
+			}
+			orderOutput.getItems().clear();
+			outputStuff(controllerOne.order);
+			calculateTotal();
+		}
 	}
 	
 	@FXML
 	void duplicateOrder(ActionEvent event) {
-		
+		if(orderOutput.getSelectionModel().getSelectedItem()!=null) {
+			int index =  orderStrings.indexOf(orderOutput.getSelectionModel().getSelectedItem());
+			ArrayList<OrderLine> order = controllerOne.order.getOrderLines();
+			OrderLine copyThis = order.get(index);
+			int line = order.size()+1;
+			
+			if(copyThis.getSandwich() instanceof ChickenSandwich) {
+				ChickenSandwich chicken = (ChickenSandwich) copyThis.getSandwich();
+				OrderLine dup = new OrderLine(line, copyThis.getSandwich(), copyThis.getPrice()); 
+				ArrayList<Extra> extras = copyThis.getSandwich().extras;
+				chicken.extras = extras;
+				controllerOne.order.add(dup);
+			}else if (copyThis.getSandwich() instanceof BeefSandwich) {
+				BeefSandwich beef = (BeefSandwich) copyThis.getSandwich();
+				OrderLine dup = new OrderLine(line, copyThis.getSandwich(), copyThis.getPrice()); 
+				ArrayList<Extra> extras = copyThis.getSandwich().extras;
+				beef.extras = extras;
+				controllerOne.order.add(dup);
+				
+			}else if(copyThis.getSandwich() instanceof FishSandwich) {
+				FishSandwich fish = (FishSandwich) copyThis.getSandwich();
+				OrderLine dup = new OrderLine(line, copyThis.getSandwich(), copyThis.getPrice()); 
+				ArrayList<Extra> extras = copyThis.getSandwich().extras;
+				fish.extras = extras;
+				controllerOne.order.add(dup);
+			}
+			
+			orderOutput.getItems().clear();
+			outputStuff(controllerOne.order);
+			calculateTotal();
+		}
 	}
 	
 	@FXML
@@ -102,7 +144,6 @@ public class ControllerTwo implements Initializable {
 			document.write(orderStrings.get(i));
 			document.write("\n");
 		}
-		
 		document.flush();
 		document.close();
 		Alert alert = new Alert(AlertType.CONFIRMATION);
