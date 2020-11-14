@@ -20,7 +20,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+
 public class ControllerTwo implements Initializable {
+	
+	
+	@FXML
+    private ListView<String> orderOutput;
+	ObservableList<String> orderStrings = FXCollections.observableArrayList();
 
 	// ControllerOne controller1 = referencOfController1;
 
@@ -28,8 +34,17 @@ public class ControllerTwo implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		System.out.println("in the initialize");
+		orderOutput.setItems(orderStrings);
 	}
 
+	
+	void outputStuff(Order input) {
+		
+		for(int i =0; i<input.size();i++) {
+			orderStrings.add(input.getOrder().get(i).toString());
+		}
+	}
+	
 	void randPrint() {
 		System.out.println("printing");
 	}
@@ -38,5 +53,7 @@ public class ControllerTwo implements Initializable {
 		
 		System.out.println(" s printing");
 	}
+	
+	
 
 }

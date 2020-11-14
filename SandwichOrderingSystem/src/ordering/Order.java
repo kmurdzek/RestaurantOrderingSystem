@@ -37,5 +37,9 @@ public class Order implements Customizable {
 	public int size() {
 		return orderLines.size();
 	}
+	
+	public ArrayList<OrderLine> getOrder(){
+		return orderLines;
+	}
 
 }

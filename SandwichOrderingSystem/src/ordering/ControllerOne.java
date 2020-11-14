@@ -64,6 +64,9 @@ public class ControllerOne implements Initializable {
 	        Stage newStage = new Stage();
 	        newStage.setScene(newScene);
 	        newStage.show();
+	        
+	        controller2.outputStuff(order);
+	        
 			//controller2.setView1Controller(this);
 			}catch(Exception e) {
 				e.printStackTrace();	
