@@ -9,16 +9,13 @@ public class ChickenSandwich extends Sandwich{
 	}
 	@Override
 	public double price() {
-		double price = chickenSandwichPrice;
-		
-		for(int i = 0; i<extras.size(); i++) {
-			price += PER_EXTRA;
-		}
+		double price = chickenSandwichPrice + (PER_EXTRA* extras.size());
 		return price;
 		
 	}
 	@Override
 	public String toString() {
-		return "Fried Chicken, Spicy Sauce, Pickles";
+		return "Chicken Sandwich; Fried Chicken, Spicy Sauce, Pickles, " + super.toString();
+		
 	}
 }

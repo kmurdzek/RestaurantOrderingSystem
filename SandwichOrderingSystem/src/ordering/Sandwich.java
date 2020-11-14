@@ -2,6 +2,8 @@ package ordering;
 
 import java.util.ArrayList;
 
+//import ordering.Extra.Ingredients;
+
 public abstract class Sandwich implements Customizable {
 	
 	static final int MAX_EXTRAS = 6;
@@ -9,15 +11,21 @@ public abstract class Sandwich implements Customizable {
 	protected ArrayList<Extra> extras;
 
 	public Sandwich() {
+		extras = new ArrayList<>();
 		
 	}
 	public abstract double price();
+	
+	public void printArray() {
+		for(int i=0;i<extras.size();i++) {
+			System.out.println(extras.get(i));
+		}
+	}
 
 	@Override
 	public boolean add(Object obj) {
-		
 		if(extras.size() <= MAX_EXTRAS) {
-			extras.add((Extra) obj);
+			extras.add(Extra.valueOf(obj.toString()));
 			return true;
 		}
 		return false;
@@ -26,7 +34,7 @@ public abstract class Sandwich implements Customizable {
 	@Override
 	public boolean remove(Object obj) {
 		
-		int index = extras.indexOf((Extra)obj);
+		int index = extras.indexOf(Extra.valueOf(obj.toString()));
 		
 		if(index != -1) {	
 			extras.remove(index);
@@ -38,9 +46,9 @@ public abstract class Sandwich implements Customizable {
 	
 	@Override
 	public String toString() {
-		String completeOrder = this.toString();
+		String completeOrder="Extra: ";
 		for(int i = 0; i < extras.size(); i++) {
-			completeOrder.concat(", " + extras.get(i));
+			completeOrder=completeOrder + extras.get(i) +", ";
 		}
 		return completeOrder;
 		

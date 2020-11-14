@@ -11,17 +11,13 @@ public class FishSandwich extends Sandwich{
 	@Override
 	public double price() {
 		
-		double price = fishSandwichPrice;
-		
-		for(int i = 0; i<extras.size(); i++) {
-			price += PER_EXTRA;
-		}
+		double price = fishSandwichPrice  + (PER_EXTRA* extras.size());
 		return price;
 	}
 	
 	@Override 
 	public String toString() {
-		return "Grilled Snapper, Cilantro, Lime";
+		return "Fish Sandwich; Grilled Snapper, Cilantro, Lime" + super.toString();
 	}
 	
 }

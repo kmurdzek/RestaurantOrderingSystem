@@ -6,6 +6,10 @@ public class Order implements Customizable {
 	
 	public static int lineNumber;
 	private ArrayList<OrderLine> orderLines;
+	
+	public Order() {
+		orderLines = new ArrayList<>();
+	}
 
 	@Override
 	public boolean add(Object obj) {
@@ -19,6 +23,19 @@ public class Order implements Customizable {
 		return true;
 	}
 	
+	public String printArr() {
+		
+		String output="";
+		
+		for(int i=0; i<orderLines.size();i++) {
+			output=output+orderLines.get(i).toString()+"\n";
+		}
+		
+		return output;	
+	}
 	
+	public int size() {
+		return orderLines.size();
+	}
 
 }

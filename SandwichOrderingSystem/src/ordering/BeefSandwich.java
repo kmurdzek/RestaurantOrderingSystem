@@ -11,16 +11,12 @@ public class BeefSandwich extends Sandwich{
 	@Override
 	public double price() {
 		
-		double price = beefSandwichPrice;
-		
-		for(int i = 0; i<extras.size(); i++) {
-			price += PER_EXTRA;
-		}
+		double price = beefSandwichPrice  + (PER_EXTRA* extras.size());
 		return price;
 	}
 	
 	@Override
 	public String toString() {
-		return "Roast Beef, Provolone Cheese, Mustard";
+		return "Beef Sandwich; Roast Beef, Provolone Cheese, Mustard" + super.toString();
 	}
 }
