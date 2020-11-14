@@ -97,7 +97,7 @@
                           </rowConstraints>
                            <children>
                               <Button mnemonicParsing="false" onAction="#addToOrder" text="Add to Order" GridPane.halignment="CENTER" />
-                              <Button fx:id="showOrder" mnemonicParsing="false" text="Show Order" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                              <Button fx:id="showOrder" mnemonicParsing="false" onAction="#sendToView2" text="Show Order" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                            </children>
                         </GridPane>
                      </children>

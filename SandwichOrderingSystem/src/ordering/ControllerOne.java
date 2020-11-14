@@ -56,18 +56,20 @@ public class ControllerOne implements Initializable {
 	// its not working idk
 	@FXML
 	void sendToView2(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewTwo.fxml"));
-
-		Parent root = loader.load();
-
-		ControllerTwo controller2 = loader.getController();
-		controller2.randPrint();
-
-		Stage stage = new Stage();
-		stage.setScene(new Scene(root));
-		stage.setTitle("Scene 2");
-		stage.show();
+			try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewTwo.fxml"));  
+			Parent root = (Parent)loader.load();
+			ControllerTwo controller2 = loader.getController();
+	        Scene newScene = new Scene(root);
+	        Stage newStage = new Stage();
+	        newStage.setScene(newScene);
+	        newStage.show();
+			//controller2.setView1Controller(this);
+			}catch(Exception e) {
+				e.printStackTrace();	
+			}
 	}
+		
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

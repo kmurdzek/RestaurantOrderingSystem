@@ -34,4 +34,9 @@ public class ControllerTwo implements Initializable {
 		System.out.println("printing");
 	}
 
+	public void setView1Controller(ControllerOne controllerOne) {
+		
+		System.out.println(" s printing");
+	}
+
 }
