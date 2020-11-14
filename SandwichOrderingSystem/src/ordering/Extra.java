@@ -8,7 +8,7 @@ package ordering;
  *
  */
 public enum Extra {
-	
-	Bacon,Ketchup,Mayonaise,Lettuce,Tomatos,Peppers,Cheddar,Onion,Mushrooms,Spinach
+
+	Bacon, Ketchup, Mayonaise, Lettuce, Tomatos, Peppers, Cheddar, Onion, Mushrooms, Spinach
 
 }

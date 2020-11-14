@@ -20,24 +20,18 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+public class ControllerTwo implements Initializable {
 
+	// ControllerOne controller1 = referencOfController1;
 
-public class ControllerTwo implements Initializable{
-	
-	//ControllerOne controller1 = referencOfController1;
-	
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+
 		System.out.println("in the initialize");
 	}
-	
+
 	void randPrint() {
 		System.out.println("printing");
 	}
-	
-	
-	
 
 }
