@@ -60,6 +60,7 @@ public class ControllerOne implements Initializable {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewTwo.fxml"));  
 			Parent root = (Parent)loader.load();
 			ControllerTwo controller2 = loader.getController();
+			controller2.setView1Controller(this);
 	        Scene newScene = new Scene(root);
 	        Stage newStage = new Stage();
 	        newStage.setScene(newScene);

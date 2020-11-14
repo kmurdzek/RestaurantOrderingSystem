@@ -15,6 +15,10 @@ public class OrderLine {
 	@Override
 	public String toString() {
 
-		return lineNumber + " " + sandwich + "Price $" + price;
+		return lineNumber + " " + sandwich + "Price $" + getPrice();
+	}
+
+	public double getPrice() {
+		return price;
 	}
 }

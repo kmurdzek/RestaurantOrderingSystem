@@ -1,6 +1,10 @@
 package ordering;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -19,25 +23,32 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 
 public class ControllerTwo implements Initializable {
 	
-	
+	private ControllerOne controllerOne;
 	@FXML
     private ListView<String> orderOutput;
+	@FXML
+	Button back, removeOrder, clearOrderButton, duplicateOrderButton, saveOrder;
+	@FXML
+	TextField orderTotal;
+	
 	ObservableList<String> orderStrings = FXCollections.observableArrayList();
 
-	// ControllerOne controller1 = referencOfController1;
+
 
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-
-		System.out.println("in the initialize");
+	public void initialize(URL arg0, ResourceBundle arg1) {	
 		orderOutput.setItems(orderStrings);
+		
+		
 	}
 
-	
 	void outputStuff(Order input) {
 		
 		for(int i =0; i<input.size();i++) {
@@ -45,14 +56,79 @@ public class ControllerTwo implements Initializable {
 		}
 	}
 	
-	void randPrint() {
-		System.out.println("printing");
-	}
-
+	//Idk if this is how were supposed to do it made a controller instance variable It works tho
 	public void setView1Controller(ControllerOne controllerOne) {
-		
-		System.out.println(" s printing");
+		this.controllerOne = controllerOne;
+		calculateTotal();
 	}
+	
+	@FXML
+	void goBack(ActionEvent event) {
+		Stage stage = (Stage) back.getScene().getWindow();
+		stage.close();
+	}
+	
+	@FXML 
+	void removeOrder(ActionEvent event) {
+		
+	}
+	
+	@FXML
+	void duplicateOrder(ActionEvent event) {
+		
+	}
+	
+	@FXML
+	void clearOrder(ActionEvent event) {
+		orderStrings.clear();
+		controllerOne.order.getOrderLines().clear(); 
+		calculateTotal();
+	}
+	@FXML 
+	void saveOrderToFile(ActionEvent event) {
+		FileChooser chooser = new FileChooser();
+		chooser.setTitle("Open Source File for the Import");
+		chooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
+				new ExtensionFilter("All Files", "*.*"));
+		Stage stage = new Stage();
+		File targetFile = chooser.showSaveDialog(stage);
+		FileWriter document;
+		
+		try {
+			
+		document = new FileWriter(targetFile, true);
+		
+		for(int i =0; i<orderStrings.size();i++) {
+			document.write(orderStrings.get(i));
+			document.write("\n");
+		}
+		
+		document.flush();
+		document.close();
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Success");
+		alert.setHeaderText("File was successfully exported.");
+		alert.setContentText("Congratulations!");
+		alert.showAndWait();
+
+	} catch (IOException e) {
+
+	} catch (NullPointerException e) {
+				
+	}
+}
+	
+	private void calculateTotal() {
+		ArrayList<OrderLine> order = controllerOne.order.getOrderLines();
+		DecimalFormat df = new DecimalFormat("#,###,##0.00");
+		double totalPrice = 0;
+		for(int i = 0; i<order.size();i++) {
+			totalPrice += order.get(i).getPrice();
+		}
+		orderTotal.setText(df.format(totalPrice));
+	}
+	
+
 	
 	
 

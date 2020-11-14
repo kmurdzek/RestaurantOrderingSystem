@@ -13,13 +13,13 @@ public class Order implements Customizable {
 
 	@Override
 	public boolean add(Object obj) {
-		orderLines.add((OrderLine) obj);
+		getOrderLines().add((OrderLine) obj);
 		return true;
 	}
 
 	@Override
 	public boolean remove(Object obj) {
-		orderLines.remove(obj);
+		getOrderLines().remove(obj);
 		return true;
 	}
 
@@ -27,18 +27,22 @@ public class Order implements Customizable {
 
 		String output = "";
 
-		for (int i = 0; i < orderLines.size(); i++) {
-			output = output + orderLines.get(i).toString() + "\n";
+		for (int i = 0; i < getOrderLines().size(); i++) {
+			output = output + getOrderLines().get(i).toString() + "\n";
 		}
 
 		return output;
 	}
 
 	public int size() {
-		return orderLines.size();
+		return getOrderLines().size();
 	}
 	
 	public ArrayList<OrderLine> getOrder(){
+		return getOrderLines();
+	}
+
+	public ArrayList<OrderLine> getOrderLines() {
 		return orderLines;
 	}
 
