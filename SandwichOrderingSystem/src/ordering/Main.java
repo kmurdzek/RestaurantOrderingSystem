@@ -26,7 +26,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = (BorderPane) FXMLLoader.load(getClass().getResource("ViewOne.fxml"));
-			Scene scene = new Scene(root, 838, 541);
+			Scene scene = new Scene(root, 838, 596);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			primaryStage.setTitle("Sandwich Order");

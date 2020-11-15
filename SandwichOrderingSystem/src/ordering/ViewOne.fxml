@@ -13,8 +13,8 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane prefHeight="531.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ordering.ControllerOne">
-   <center>
-      <VBox prefHeight="555.0" prefWidth="783.0" BorderPane.alignment="CENTER">
+   <bottom>
+      <VBox prefHeight="596.0" prefWidth="838.0" BorderPane.alignment="CENTER">
          <children>
             <GridPane prefHeight="124.0" prefWidth="974.0">
               <columnConstraints>
@@ -30,7 +30,7 @@
                   <ComboBox fx:id="comboBox" onAction="#changeSandwich" prefWidth="150.0" GridPane.halignment="CENTER" />
                </children>
             </GridPane>
-            <GridPane prefHeight="251.0" prefWidth="838.0">
+            <GridPane prefHeight="380.0" prefWidth="842.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="54.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="167.0" />
@@ -40,11 +40,11 @@
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="151.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="264.0" minHeight="10.0" prefHeight="264.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="151.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ListView fx:id="ingredientSelection" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ListView fx:id="ingredientSelection" prefHeight="174.0" prefWidth="199.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <ListView fx:id="extraIngredients" layoutX="10.0" layoutY="10.0" prefHeight="155.0" prefWidth="208.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <Label alignment="CENTER" text="Ingredient Selection" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
                   <Label layoutX="10.0" layoutY="23.0" text="Extra Ingredients" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
@@ -83,8 +83,8 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Price" GridPane.halignment="CENTER" />
-                              <TextField fx:id="priceDisplay" editable="false" prefHeight="27.0" prefWidth="92.0" GridPane.columnIndex="1" />
+                              <Label alignment="CENTER" text="Price $" textAlignment="CENTER" GridPane.halignment="RIGHT" />
+                              <TextField fx:id="priceDisplay" editable="false" prefHeight="27.0" prefWidth="57.0" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.rowIndex="1">
@@ -106,5 +106,5 @@
             </GridPane>
          </children>
       </VBox>
-   </center>
+   </bottom>
 </BorderPane>
