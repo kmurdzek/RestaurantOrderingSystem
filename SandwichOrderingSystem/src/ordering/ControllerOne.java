@@ -2,6 +2,7 @@ package ordering;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -252,16 +253,16 @@ public class ControllerOne implements Initializable {
 	// puts the price in the text entry
 	void setThePrice() {
 		int size = extrasSelected.size();
-
+		DecimalFormat df = new DecimalFormat("#,###,##0.00");
 		if (comboBox.getValue().equals("Chicken")) {
 			double price = 8.99 + size * 1.99;
-			priceDisplay.setText(String.valueOf(price));
+			priceDisplay.setText(String.valueOf(df.format(price)));
 		} else if (comboBox.getValue().equals("Beef")) {
 			double price = 10.99 + size * 1.99;
-			priceDisplay.setText(String.valueOf(price));
+			priceDisplay.setText(String.valueOf(df.format(price)));
 		} else {
 			double price = 12.99 + size * 1.99;
-			priceDisplay.setText(String.valueOf(price));
+			priceDisplay.setText(String.valueOf(df.format(price)));
 		}
 	}
 
