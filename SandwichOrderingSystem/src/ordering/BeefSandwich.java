@@ -17,6 +17,6 @@ public class BeefSandwich extends Sandwich {
 
 	@Override
 	public String toString() {
-		return "Beef Sandwich; Roast Beef, Provolone Cheese, Mustard" + super.toString();
+		return "Beef Sandwich; Roast Beef, Provolone Cheese, Mustard, " + super.toString();
 	}
 }
