@@ -164,11 +164,17 @@ public class ControllerOne implements Initializable {
 			System.out.println(order.printArr());
 			break;
 		}
+		ingredientSelect.addAll(extrasSelected);
+		ingredientSelect.setAll(ingredientSelect.sorted());
+		extrasSelected.clear();
 
 	}
 
 	@FXML
 	void changeSandwich(ActionEvent event) {
+		ingredientSelect.addAll(extrasSelected);
+		ingredientSelect.setAll(ingredientSelect.sorted());
+		extrasSelected.clear();
 		String value = comboBox.getValue();
 		// System.out.println(value);
 		switch (value) {
