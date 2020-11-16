@@ -1,5 +1,10 @@
 package ordering;
 
+/**
+ * 
+ * 
+ * @author Kacper Murdzek, Taranvir Singh
+ */
 public class ChickenSandwich extends Sandwich {
 
 	static final double chickenSandwichPrice = 8.99;

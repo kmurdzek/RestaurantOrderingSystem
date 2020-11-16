@@ -24,8 +24,8 @@
             <Button fx:id="removeOrderButton" layoutX="180.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeOrder" prefHeight="25.0" prefWidth="128.0" text="-Remove order line" />
             <Button fx:id="back" layoutX="180.0" layoutY="53.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="129.0" text="Back" />
             <Button fx:id="saveOrder" layoutX="448.0" layoutY="54.0" mnemonicParsing="false" onAction="#saveOrderToFile" prefHeight="25.0" prefWidth="132.0" text="Save Order to File" />
-            <TextField fx:id="orderTotal" layoutX="484.0" layoutY="14.0" prefHeight="25.0" prefWidth="96.0" />
-            <Label layoutX="406.0" layoutY="18.0" text="Order total $" />
+            <TextField fx:id="orderTotal" editable="false" layoutX="484.0" layoutY="14.0" prefHeight="25.0" prefWidth="96.0" />
+            <Label layoutX="416.0" layoutY="19.0" text="Order total $" />
          </children>
       </AnchorPane>
    </bottom>

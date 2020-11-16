@@ -2,7 +2,6 @@ package ordering;
 
 import java.util.ArrayList;
 
-//import ordering.Extra.Ingredients;
 
 public abstract class Sandwich implements Customizable {
 
