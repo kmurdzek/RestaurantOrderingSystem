@@ -3,8 +3,9 @@ package ordering;
 import java.util.ArrayList;
 
 /**
- * Order class makes it possible to add and remove orders from and implements the Customizable interface.
- * This class makes it possible for users to save an order and to have it all in one place.
+ * Order class makes it possible to add and remove orders from and implements
+ * the Customizable interface. This class makes it possible for users to save an
+ * order and to have it all in one place.
  * 
  * @author Kacper Murdzek, Taranvir Singh
  *
@@ -21,9 +22,10 @@ public class Order implements Customizable {
 	public Order() {
 		orderLines = new ArrayList<>();
 	}
-	
+
 	/**
-	 * add method overrides the Customizable add method and adds an order to the orderLines arrayList.
+	 * add method overrides the Customizable add method and adds an order to the
+	 * orderLines arrayList.
 	 * 
 	 * @param orderline to be added
 	 * @return boolean if added
@@ -33,9 +35,10 @@ public class Order implements Customizable {
 		getOrderLines().add((OrderLine) obj);
 		return true;
 	}
-	
+
 	/**
-	 * remove method overrides the Customizable remove method and removes an order from the orderlines arrayList.
+	 * remove method overrides the Customizable remove method and removes an order
+	 * from the orderlines arrayList.
 	 * 
 	 * @param orderline to be removed
 	 * @return boolean if removed
@@ -56,7 +59,8 @@ public class Order implements Customizable {
 	}
 
 	/**
-	 * getOrderLines method gets the orderLines array that stores the sandwich orders.
+	 * getOrderLines method gets the orderLines array that stores the sandwich
+	 * orders.
 	 * 
 	 * @return orderline arrayList
 	 */
