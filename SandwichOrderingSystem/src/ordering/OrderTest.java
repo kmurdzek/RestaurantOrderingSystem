@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author Taranvir
+ * @author Kacper Murdzek, Taranvir
  *
  */
 class OrderTest {
@@ -149,7 +149,7 @@ class OrderTest {
 		assertEquals(orderlineTest, order.getOrderLines()); // both lists contain the same orderLine so they should be
 															// the same
 
-		orderlineTest.add(line2);  //adds orderLines to the test array
+		orderlineTest.add(line2); // adds orderLines to the test array
 		orderlineTest.add(line3);
 		orderlineTest.add(line4);
 		orderlineTest.add(line5);
@@ -160,23 +160,21 @@ class OrderTest {
 		order.add(line5);
 		assertEquals(orderlineTest, order.getOrderLines()); // lists should return equal
 
-		order.remove(line5);  
+		order.remove(line5);
 		assertNotEquals(orderlineTest, order.getOrderLines()); // should return not equal
-		
+
 		order.remove(line4);
 		order.remove(line3);
 		order.remove(line2);
 		order.remove(line1);
 		assertNotEquals(orderlineTest, order.getOrderLines()); // should return not equal
-		
-		
+
 		orderlineTest.remove(line1);
 		orderlineTest.remove(line2);
 		orderlineTest.remove(line3);
 		orderlineTest.remove(line4);
 		orderlineTest.remove(line5);
 		assertEquals(orderlineTest, order.getOrderLines()); // lists should return equal
-
 
 	}
 

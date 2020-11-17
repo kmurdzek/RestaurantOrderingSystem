@@ -45,12 +45,11 @@ public class Order implements Customizable {
 	 */
 	@Override
 	public boolean remove(Object obj) {
-		
-		if(getOrderLines().contains(obj)) {
+
+		if (getOrderLines().contains(obj)) {
 			getOrderLines().remove(obj);
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}

@@ -1,5 +1,7 @@
 package ordering;
 
+import java.text.DecimalFormat;
+
 /**
  * Orderline class creates an instance of a sandwich order and and makes it
  * ready to be put into the orderLine arrayList to be displayed on the GUI.
@@ -35,8 +37,9 @@ public class OrderLine {
 	 */
 	@Override
 	public String toString() {
-
-		return lineNumber + " " + getSandwich() + "Price $" + getPrice();
+		DecimalFormat df = new DecimalFormat("#,###,##0.00");
+		String priceFormated = df.format(getPrice());
+		return lineNumber + " " + getSandwich() + "Price $" + priceFormated;
 	}
 
 	/**

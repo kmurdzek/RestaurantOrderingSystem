@@ -74,8 +74,8 @@ public abstract class Sandwich implements Customizable {
 	@Override
 	public String toString() {
 		String completeOrder = "Extra: ";
-		
-		if(extras.isEmpty()) {
+
+		if (extras.isEmpty()) {
 			return completeOrder + "none, ";
 		}
 		for (int i = 0; i < extras.size(); i++) {
