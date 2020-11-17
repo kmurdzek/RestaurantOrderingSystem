@@ -45,8 +45,14 @@ public class Order implements Customizable {
 	 */
 	@Override
 	public boolean remove(Object obj) {
-		getOrderLines().remove(obj);
-		return true;
+		
+		if(getOrderLines().contains(obj)) {
+			getOrderLines().remove(obj);
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/**
